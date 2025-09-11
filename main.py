@@ -1,4 +1,5 @@
 import pygame
+import sys
 from constants import *
 from player import *
 from asteroid import *
@@ -38,6 +39,11 @@ def main():
 
         # update (move/rotate etc.)
         updatable.update(dt)
+
+        # check for collisions between player and asteroids
+        for asteroid in asteroids:
+            if player.collide(asteroid):
+                sys.exit("Game over!")
 
         # draw 
         for drawing in drawable:
