@@ -4,8 +4,10 @@ from constants import *
 from player import *
 from asteroid import *
 from asteroidfield import *
+from shot import *
 
 def main():
+    '''set up game objects and groups'''
     # create groups and add the Player class to both
     drawable = pygame.sprite.Group()
     updatable = pygame.sprite.Group()
@@ -23,7 +25,11 @@ def main():
     # create an AsteroidField object
     asteroid_field = AsteroidField()
 
-    #initialize pygame
+    # create a shots group & add all Shot objects to it
+    shots = pygame.sprite.Group()
+    Shot.containers = (shots, drawable, updatable) 
+
+    '''initialize pygame'''
     pygame.init
     
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
