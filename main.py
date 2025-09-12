@@ -55,6 +55,13 @@ def main():
         for drawing in drawable:
             drawing.draw(screen)
 
+        # collision checking
+        for asteroid in asteroids:
+            for shot in shots:
+                if asteroid.collide(shot):
+                    asteroid.kill()
+                    shot.kill()
+
         # flip (present) - makes drawing visible on screen
         pygame.display.flip()
 
