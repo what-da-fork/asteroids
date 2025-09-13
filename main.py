@@ -59,7 +59,7 @@ def main():
         for asteroid in asteroids:
             for shot in shots:
                 if asteroid.collide(shot):
-                    asteroid.kill()
+                    asteroid.split()
                     shot.kill()
 
         # flip (present) - makes drawing visible on screen
